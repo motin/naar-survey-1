@@ -204,10 +204,10 @@ server <- function(input, output, session) {
       fluidRow(column(12, h2(i18n()$t("part-one-title"))))
     )
     
-    # The first part of the survey lists the add-ons and asks what the user was trying to remedy/achieve by choosing the add-on. The user either fill in a free-text field as answer or tick a box for “I don’t know/remember”, and then click continue.
+    # The first part of the survey lists the add-ons and asks what the user was trying to achieve by choosing the add-on. The user either fill in a free-text field as answer or tick a box for “I don’t know/remember”, and then click continue.
     # for each survey-included-addon:
     # {Add-on Title}
-    # What were you trying to remedy/achieve by choosing this add-on?
+    # What were you trying to achieve by choosing this add-on?
     # textarea
     # [_] I don’t know/remember
     # ...
@@ -229,7 +229,7 @@ server <- function(input, output, session) {
         motivationInputId <- paste0(inputIdBase, "-motivation", sep="")
         motivationNaInputId <- paste0(inputIdBase, "-motivation-na", sep="")
         
-        motivationInput <- textAreaInput(motivationInputId, "What were you trying to remedy/achieve by choosing this add-on?", value = getInputValue(input, motivationInputId, ""), width="100%")
+        motivationInput <- textAreaInput(motivationInputId, "What were you trying to achieve by choosing this add-on?", value = getInputValue(input, motivationInputId, ""), width="100%")
         motivationNaInput <- checkboxInput(motivationNaInputId, label = "I don’t know/remember", value = getInputValue(input, motivationNaInputId, FALSE))
         
         description <- strip_html(paste("<p>", as.character(addon$description_en_us), "</p>"))
